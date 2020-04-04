@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        /* 类名既有tall 又有mm */
+        .tall.mm {
+            color: red
+        }
+
+        /* 首先是p标签 并且类名是sg */
+        p.sg {
+            color: red
+        }
+
+        /* 并集选择器 */
+        .woman,
+        p {
+            color: red
+        }
+
+        /* ul下子孙li都会变红 */
+        ul li {
+            color: blue;
+        }
+
+        /* ul下类名为pp的li变黑 */
+       ul li.pp {
+            color: black;
+        }
+
+         /* 
+        * box下子一级（儿子）的p标签才会变蓝色，
+        * 一级以下的都不会变（孙子） 
+        */
+        .box > p {
+            color: blue;
+        }
+        /* 属性选择器
+         */
+         li[type = "one"]{
+             color: red
+         }
+
+          /*
+            选择器::first-letter
+            选中段落中的第一个字
+        */
+        p.ele::first-letter {
+            color: red;
+            font-size: 50px;
+            font-weight: bolder;
+        }
+        
+        /*
+            选择器::first-line
+            选中段落中的第一行
+        */
+        p.ele::first-line {
+            color: green;
+        }
+        
+        /*
+            选择器::selection
+            控制选中内容的样式
+        */
+        p.ele::selection {
+            background-color: rgb(236, 19, 63);
+            color: blue
+        }
+            /*
+            选择器::before
+            可以给当前元素最前面 加 内容
+            最关键属性 content 不能少
+        */
+
+        p.ele::before {
+            content: "￥";
+            height: 50px;
+            width: 50px;
+            display: inline-block;
+            background-color: blue;
+            background-image: url(08.gif);
+        }
+
+        /*
+         选择器::after
+         可以给当前元素 最后面 添加 内容
+         最关键属性 content 不能少
+         行内元素的效果
+        */
+        p.ele::after {
+            content: "------你个损塞";
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <fieldset>
+        <legend>交集选择器</legend>
+        <div class="tall">美女</div>
+        <div class="tall mm">大美女</div>
+
+        <p>帅哥</p>
+        <p class="sg">大帅哥</p>
+    </fieldset>
+
+
+    <fieldset>
+        <legend>并集选择器</legend>
+        <div>并集</div>
+        <div class="woman">美女</div>
+        <p class="man">帅哥</p>
+    </fieldset>
+
+    <fieldset>
+        <legend>后代选择器</legend>
+        <ul>
+            <li>11111111111</li>
+            <li class="pp">22222222222</li>
+            <li>33333333333</li>
+        </ul>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>子代选择器</legend>
+        <div class="box">
+            <p>1111111</p>
+
+            <div>
+                <p>22222222</p>
+            </div>
+
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>属性选择器</legend>
+     <ol>
+         <li type="one">111111</li>
+         <li type="tow">222222</li>
+         <li type="three">333333</li>
+     </ol>
+    </fieldset>
+
+    
+    <fieldset>
+        <legend>伪元素选择器</legend>
+        <p class="ele">英语词汇，一般指即兴的、随性的随意的发挥，例如HIPHOP说唱中的freestyle就是即兴说唱的意思。2017年6月，因吴亦凡屡次提起而火遍网络。 吴亦凡爆红的freestyle，其实是嘻哈选手的基本功，也是《中国有嘻哈》节目中的一个环节名称。 发展经过编辑 从吴亦凡口里说出来，freestyle就变得很魔性了，因为他见人都会问一句，你有freestyle吗？两个选手难以选择，还是这句，“你们有freestyle吗”？</p>
+   
+    </fieldset>
+
+</body>
+
+</html>
